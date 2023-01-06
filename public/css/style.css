@@ -1,0 +1,26 @@
+:root {
+    --artichoke: #A3A380;
+    --medium-champagne: #D6CE93;
+    --beige: #EFEBCE;
+    --tumbleweed: #D8A48F;
+    --old-rose: #BB8588;
+    --black: black;
+    --white: white;
+}
+
+.jumbotron {
+    background-color: var(--artichoke);
+    color: var(--white);
+}
+
+.title {
+    background-color: var(--old-rose);
+}
+
+.title a {
+    color: var(--white);
+}
+
+.content {
+    border: 2px solid var(--old-rose);
+}
