@@ -1,0 +1,15 @@
+[
+  {
+    "title": "Using HTTP cookies",
+    "content": 
+    "An HTTP cookie (web cookie, browser cookie) is a small piece of data that a server sends to a user's web browser. The browser may store the cookie and send it back to the same server with later requests. Typically, an HTTP cookie is used to tell if two requests come from the same browser—keeping a user logged in, for example."
+  },
+  {
+    "title": "MVC",
+    "content": "MVC (Model-View-Controller) is a pattern in software design commonly used to implement user interfaces, data, and controlling logic. It emphasizes a separation between the software's business logic and display. This 'separation of concerns' provides for a better division of labor and improved maintenance. "
+  },
+  {
+    "title": "Object-oriented programming",
+    "content": "Object-oriented programming is about modeling a system as a collection of objects, where each object represents some particular aspect of the system. Objects contain both functions (or methods) and data. An object provides a public interface to other code that wants to use it but maintains its own private, internal state; other parts of the system don't have to care about what is going on inside the object."
+  }
+]
