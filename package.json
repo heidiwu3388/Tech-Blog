@@ -1,0 +1,19 @@
+{
+  "name": "tech-blog",
+  "version": "1.0.0",
+  "description": "CMS-style blog site",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/heidiwu3388/Tech-Blog.git"
+  },
+  "author": "Heidi Wu",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/heidiwu3388/Tech-Blog/issues"
+  },
+  "homepage": "https://github.com/heidiwu3388/Tech-Blog#readme"
+}
