@@ -15,6 +15,7 @@
 
 .title {
     background-color: var(--old-rose);
+    color: var(--white);
 }
 
 .title a {
