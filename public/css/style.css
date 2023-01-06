@@ -6,6 +6,7 @@
     --old-rose: #BB8588;
     --black: black;
     --white: white;
+    --boader-radius: 5px;
 }
 
 .jumbotron {
@@ -16,12 +17,15 @@
 .title {
     background-color: var(--old-rose);
     color: var(--white);
+    border-radius: var(--boader-radius) var(--boader-radius) 0 0;
 }
 
 .title a {
     color: var(--white);
 }
 
+form,
 .content {
     border: 2px solid var(--old-rose);
+    border-radius: 0 0 var(--boader-radius) var(--boader-radius);
 }
