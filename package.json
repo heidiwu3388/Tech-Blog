@@ -4,7 +4,9 @@
   "description": "CMS-style blog site",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "seed": "node seeds/seed.js"
   },
   "repository": {
     "type": "git",
@@ -15,5 +17,11 @@
   "bugs": {
     "url": "https://github.com/heidiwu3388/Tech-Blog/issues"
   },
-  "homepage": "https://github.com/heidiwu3388/Tech-Blog#readme"
+  "homepage": "https://github.com/heidiwu3388/Tech-Blog#readme",
+  "dependencies": {
+    "bcrypt": "^5.1.0",
+    "dotenv": "^16.0.3",
+    "mysql2": "^2.3.3",
+    "sequelize": "^6.28.0"
+  }
 }
