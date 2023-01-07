@@ -2,7 +2,7 @@
   <div class="title px-5 pt-3 pb-2">
     <h3>Sign Up</h3>
   </div>
-  <form class="p-5">
+  <form class="signup-form p-5">
     <div class="mb-3">
       <label for="inputUserName" class="form-label">User name</label>
       <input type="text" class="form-control" id="inputUserName">
@@ -14,6 +14,7 @@
     <div class="mb-3">
       <label for="inputPassword" class="form-label">Password</label>
       <input type="password" class="form-control" id="inputPassword">
+      <div id="passwordHelp" class="form-text">At least 8 characters long.</div>
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
   </form>
@@ -22,3 +23,5 @@
       <a href="/login">Login here</a>
     </p>
 </div>
+
+<script src="/js/signup.js"></script>
