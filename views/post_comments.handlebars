@@ -1,0 +1,25 @@
+<!-- Single post -->
+<div class="row mb-4 post">
+  <div class="col">
+    <div class="title px-3 pt-3 pb-2 d-flex justify-content-between align-items-end flex-wrap ">
+      <h3>{{post.title}}</h3>
+      <em>~{{post.user.name}} on {{format_date post.date_created}}</em>
+    </div>
+    <div class="content p-3">
+      <p>{{post.content}}</p>
+    </div>
+  </div>
+</div>
+
+<!-- Multiple comments -->
+{{#each post.comments as |comment| }}
+<div class="row">
+  <div class="col">
+    <em class="comment-by">~{{comment.user.name}} on {{format_date comment.date_created}}</em>
+    <div class="py-2">
+      <p>{{comment.text}}</p>
+    </div>
+  </div>
+</div>
+<hr>
+{{/each}}

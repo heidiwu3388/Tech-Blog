@@ -29,3 +29,7 @@ form,
     border: 2px solid var(--old-rose);
     border-radius: 0 0 var(--boader-radius) var(--boader-radius);
 }
+
+.comment-by {
+    background-color: var(--beige);
+}
