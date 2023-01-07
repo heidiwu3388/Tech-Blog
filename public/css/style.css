@@ -24,7 +24,8 @@
     color: var(--white);
 }
 
-form,
+.login-form,
+.signup-form,
 .content {
     border: 2px solid var(--old-rose);
     border-radius: 0 0 var(--boader-radius) var(--boader-radius);

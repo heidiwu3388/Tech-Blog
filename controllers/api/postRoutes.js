@@ -1,8 +1,9 @@
 const router = require('express').Router();
 const { Post, Comment, User } = require('../../models');
+const withAuth = require('../../utils/auth');
 
 // GET /api/posts/:id 
-router.get('/:id', async (req, res) => {
+router.get('/:id', withAuth, async (req, res) => {
   try {
     // Get single post with given id and JOIN with Comment data
     const dbPostData = await Post.findOne({
@@ -16,6 +17,7 @@ router.get('/:id', async (req, res) => {
           attributes: ['name']
         }
       ],
+      order: [[Comment, 'date_created', 'DESC']]
     });
     // send error if no post found
     if (!dbPostData) {
@@ -26,7 +28,7 @@ router.get('/:id', async (req, res) => {
     }
     // Serialize data so the template can read it
     const post = dbPostData.get({ plain: true });
-    console.log(post);
+    console.log("post: ", post);
     // Pass serialized data and session flag into template
     res.render('post_comments', { post, loggedIn: req.session.loggedIn });
   } catch (err) {
