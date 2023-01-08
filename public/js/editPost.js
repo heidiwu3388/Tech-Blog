@@ -26,7 +26,28 @@ const updatePostHandler = async (event) => {
   }
 };
 
+const deletePostHandler = async (event) => {
+  event.preventDefault();
+
+  const postId = document.querySelector('.edit-form').dataset.postId.trim();
+
+  const response = await fetch(`/api/posts/${postId}`, {
+    method: 'DELETE',
+    headers: { 'Content-Type': 'application/json' },
+  }); 
+
+  if (response.ok) {
+    document.location.replace('/dashboard');
+  }
+  else {
+    alert('Failed to delete post.');
+  }
+};
 // add event listener to 'edit' form 'update' button
 document
   .querySelector('.edit-form')
   .addEventListener('submit', updatePostHandler);
+
+document
+  .querySelector('#btn-delete-post')
+  .addEventListener('click', deletePostHandler);

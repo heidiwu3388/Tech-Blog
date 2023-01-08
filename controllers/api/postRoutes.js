@@ -68,7 +68,6 @@ router.put("/:id", withAuth, async (req, res) => {
           user_id: req.session.userId
         }
       });
-      console.log(dbPostData);
       // send error message if post update unsucessfull
       if (!dbPostData[0]) {
         res.status(404).json({ message: `Failed to update post id=${req.params.id}` });
@@ -76,11 +75,36 @@ router.put("/:id", withAuth, async (req, res) => {
       }
       // send success message
       res.status(200).json(dbPostData);
-  } catch (err) {
-    // send error message
-    res.status(500).json(err);
-  }
-});
+    } catch (err) {
+      // send error message
+      res.status(500).json(err);
+    }
+  });
+  
+  // DELETE /api/posts/:id
+  // delete a post by id
+  router.delete("/:id", withAuth, async (req, res) => {
+    try {
+      // delete post
+      const dbPostData = await Post.destroy({
+        where: {
+          id: req.params.id,
+          user_id: req.session.userId
+        } 
+      });
+      console.log(dbPostData);
+      // send error message if post delete unsucessfull
+      if (!dbPostData) {
+        res.status(404).json({ message: `Failed to delete post id=${req.params.id}` });
+        return;
+      }
+      // send success message
+      res.status(200).json(dbPostData);
+    } catch (err) {
+      // send error message
+      res.status(500).json(err);
+    }
+  });
 
 
   module.exports = router;
