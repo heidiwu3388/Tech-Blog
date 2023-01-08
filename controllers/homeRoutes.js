@@ -2,6 +2,7 @@ const router = require("express").Router();
 const { User, Post } = require("../models");
 const withAuth = require("../utils/auth");
 
+// GET all posts for homepage
 router.get("/", async (req, res) => {
   try {
     // Get all posts and JOIN with user data
@@ -45,13 +46,14 @@ router.get("/signup", (req, res) => {
   res.render("signup");
 });
 
-// GET all posts for the signed-in user
+// GET all posts for the signed-in user and render dashboard page
 router.get("/dashboard", withAuth, async (req, res) => {
   try {
     const dbUserData = await User.findByPk(req.session.userId, {
       include: [{ model: Post }],
       order: [[Post, "date_created", "DESC"]],
     });
+    // send error message if no user found
     if (!dbUserData) {
       res
         .status(404)
@@ -66,4 +68,32 @@ router.get("/dashboard", withAuth, async (req, res) => {
     res.status(500).json(err);
   }
 });
+
+// GET one post (with specified id) for the signed-in user
+// and render edit page
+router.get("/dashboard/edit/:id", withAuth, async (req, res) => {
+  try {
+    const dbPostData = await Post.findOne({
+      where: {
+        id: req.params.id,
+        user_id: req.session.userId,
+      }
+    });
+    // send error message if no post found
+    if (!dbPostData) {
+      console.log("hello 3");
+      res
+      .status(404)
+      .json({ message: `No post found with id=${req.params.id}` });
+      return;
+    }
+    // Serialize data so the template can read it
+    const post = dbPostData.get({ plain: true });
+    // Pass serialized data and session flag into template
+    res.render("editPost", { ...post, loggedIn: req.session.loggedIn });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 module.exports = router;
