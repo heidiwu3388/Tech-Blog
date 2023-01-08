@@ -31,7 +31,6 @@ router.get("/login", (req, res) => {
     res.redirect("/");
     return;
   }
-
   res.render("login");
 });
 
@@ -46,7 +45,8 @@ router.get("/signup", (req, res) => {
   res.render("signup");
 });
 
-// GET all posts for the signed-in user and render dashboard page
+// GET all posts for the signed-in user 
+// and render dashboard page
 router.get("/dashboard", withAuth, async (req, res) => {
   try {
     const dbUserData = await User.findByPk(req.session.userId, {
@@ -81,7 +81,6 @@ router.get("/dashboard/edit/:id", withAuth, async (req, res) => {
     });
     // send error message if no post found
     if (!dbPostData) {
-      console.log("hello 3");
       res
       .status(404)
       .json({ message: `No post found with id=${req.params.id}` });
@@ -94,6 +93,11 @@ router.get("/dashboard/edit/:id", withAuth, async (req, res) => {
   } catch (err) {
     res.status(500).json(err);
   }
+});
+
+// GET new post page
+router.get("/dashboard/new", withAuth, async (req, res) => {
+  res.render("newPost", { loggedIn: req.session.loggedIn });
 });
 
 module.exports = router;

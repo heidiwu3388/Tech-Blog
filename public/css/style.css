@@ -15,12 +15,13 @@
 }
 
 .title {
-    background-color: var(--old-rose);
+    background-color: var(--artichoke);
     color: var(--white);
     border-radius: var(--boader-radius) var(--boader-radius) 0 0;
 }
 
-.title-only {
+.title-link {
+    background-color: var(--old-rose);
     border-radius: var(--boader-radius) var(--boader-radius) var(--boader-radius) var(--boader-radius);
 }
 
@@ -32,9 +33,11 @@
 .login-form,
 .signup-form,
 .edit-form,
+.new-form,
 .content {
-    border: 2px solid var(--old-rose);
+    border: 1px solid var(--artichoke);
     border-radius: 0 0 var(--boader-radius) var(--boader-radius);
+    background-color: var(--beige);
 }
 
 .comment-by {
@@ -43,4 +46,9 @@
 
 .dashboard-heading {
     color: var(--artichoke);
+}
+
+.btn-old-rose {
+    background-color: var(--old-rose);
+    color: var(--white);
 }

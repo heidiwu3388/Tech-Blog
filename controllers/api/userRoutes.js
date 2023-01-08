@@ -34,14 +34,14 @@ router.post('/login', async (req, res) => {
   }
 });
 
-// POST /api/users/logout
-router.post('/logout', (req, res) => {
+// GET /api/users/logout
+router.get('/logout', (req, res) => {
   if (req.session.loggedIn) {
     req.session.destroy(() => {
-      res.status(204).end();
+      res.redirect("/");
     });
   } else {
-    res.status(404).end();
+    res.status(400).end();
   }
 });
 
