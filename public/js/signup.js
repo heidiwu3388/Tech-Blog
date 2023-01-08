@@ -18,7 +18,6 @@ const signupFormHandler = async (event) => {
       document.location.replace('/');
     } else {
       const data = await response.json();
-      console.log("data: ", data);
       alert(data.errors[0].message || 'Failed to sign up.');
     }
   }
