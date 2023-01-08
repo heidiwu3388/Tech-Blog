@@ -3,6 +3,7 @@ const { Post, Comment, User } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 // GET /api/posts/:id 
+// get a single post with comments
 router.get('/:id', withAuth, async (req, res) => {
   try {
     // Get single post with given id and JOIN with Comment data
@@ -45,11 +46,41 @@ router.post('/', withAuth, async (req, res) => {
       content: req.body.content,
       user_id: req.session.userId,
     });
-    // redirect to dashboard if successful creation of new post
-    res.redirect('/dashboard');
+    res.status(200).json(dbPostData);
   } catch (err) {
     res.status(500).json(err);
   }
 });
 
-module.exports = router;
+// PUT /api/posts/:id
+// update a post's title or content by id
+router.put("/:id", withAuth, async (req, res) => {
+  try {
+    // update post data
+    const dbPostData = await Post.update(
+      {
+        title: req.body.title,
+        content: req.body.content,
+      },
+      {
+        where: { 
+          id: req.params.id,
+          user_id: req.session.userId
+        }
+      });
+      console.log(dbPostData);
+      // send error message if post update unsucessfull
+      if (!dbPostData[0]) {
+        res.status(404).json({ message: `Failed to update post id=${req.params.id}` });
+        return;
+      }
+      // send success message
+      res.status(200).json(dbPostData);
+  } catch (err) {
+    // send error message
+    res.status(500).json(err);
+  }
+});
+
+
+  module.exports = router;
