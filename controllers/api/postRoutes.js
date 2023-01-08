@@ -36,4 +36,20 @@ router.get('/:id', withAuth, async (req, res) => {
   }
 });
 
+// POST /api/posts
+// create a new post
+router.post('/', withAuth, async (req, res) => {
+  try {
+    const dbPostData = await Post.create({
+      title: req.body.title,
+      content: req.body.content,
+      user_id: req.session.userId,
+    });
+    // redirect to dashboard if successful creation of new post
+    res.redirect('/dashboard');
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 module.exports = router;
