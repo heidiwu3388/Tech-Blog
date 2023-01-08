@@ -34,16 +34,7 @@ router.post('/login', async (req, res) => {
   }
 });
 
-// GET /api/users/logout
-router.get('/logout', (req, res) => {
-  if (req.session.loggedIn) {
-    req.session.destroy(() => {
-      res.redirect("/");
-    });
-  } else {
-    res.status(400).end();
-  }
-});
+
 
 // POST /api/users to create a new user for signup
 router.post('/', async (req, res) => {

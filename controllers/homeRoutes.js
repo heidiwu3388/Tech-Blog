@@ -34,6 +34,18 @@ router.get("/login", (req, res) => {
   res.render("login");
 });
 
+// GET /logout
+// Log user out and redirect to home page
+router.get('/logout', (req, res) => {
+  if (req.session.loggedIn) {
+    req.session.destroy(() => {
+      res.redirect("/");
+    });
+  } else {
+    res.status(400).end();
+  }
+});
+
 // GET Sign Up page
 router.get("/signup", (req, res) => {
   // If the user is already logged in, redirect the request to home page
