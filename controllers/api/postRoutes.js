@@ -29,7 +29,6 @@ router.get('/:id', withAuth, async (req, res) => {
     }
     // Serialize data so the template can read it
     const post = dbPostData.get({ plain: true });
-    console.log("post: ", post);
     // Pass serialized data and session flag into template
     res.render('post_comments', { post, loggedIn: req.session.loggedIn, userName: req.session.userName });
   } catch (err) {
@@ -92,7 +91,6 @@ router.put("/:id", withAuth, async (req, res) => {
           user_id: req.session.userId
         } 
       });
-      console.log(dbPostData);
       // send error message if post delete unsucessfull
       if (!dbPostData) {
         res.status(404).json({ message: `Failed to delete post id=${req.params.id}` });

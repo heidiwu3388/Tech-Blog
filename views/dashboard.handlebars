@@ -1,8 +1,7 @@
 <!-- Dashboard -->
 <div class="d-flex flex-column align-items-center mb-3">
-  <h4 class="sub-heading">Hi, {{name}}</h4>
   <h1 class="sub-heading">It's Your Dashboard !</h1>
-  <a href="/dashboard/new" class="btn btn-lg btn-old-rose mb-2" id="btn-add-new-post">➕ New Post</a>
+  <a href="/dashboard/new" class="btn btn-lg btn-primary mb-2" id="btn-add-new-post">+ New Post</a>
   {{#if posts.length}}
   <em>
     <h5 class="sub-heading">Add a post? Click the button above.</h5>
@@ -23,14 +22,19 @@
 {{#if posts.length}}
 {{!-- Loop over each object in the posts array --}}
 {{#each posts as |post| }}
-<div class="row mb-4 post">
+<div class="row post">
   <div class="col">
+    <!-- post title -->
     <a class="text-decoration-none" href="/dashboard/edit/{{post.id}}">
-      <div class="title title-link px-3 pt-3 pb-2 d-flex justify-content-between align-items-end flex-wrap ">
+      <div class="title px-3 pt-3 pb-2 d-flex justify-content-between align-items-end flex-wrap ">
         <h3>{{post.title}}</h3>
         {{format_date post.date_created}}</em>
       </div>
     </a>
+    <!-- trimmed post content -->
+    <div class="trimmed-content px-3 py-2">
+      <p>{{trim_string post.content 100}}</p>
+    </div>
   </div>
 </div>
 {{/each}}
