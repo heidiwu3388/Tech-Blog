@@ -4,7 +4,7 @@ const withAuth = require('../../utils/auth');
 
 // GET /api/posts/:id 
 // get a single post with comments
-router.get('/:id', withAuth, async (req, res) => {
+router.get('/:id', async (req, res) => {
   try {
     // Get single post with given id and JOIN with Comment data
     const dbPostData = await Post.findOne({

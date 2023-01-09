@@ -12,6 +12,7 @@
 </div>
 
 <!-- Add Comment -->
+{{#if loggedIn}}
 <div class="row mb-4">
   <div class="col">
     <form class="add-comment-form py-3">
@@ -22,6 +23,13 @@
     </form>
   </div>
 </div>
+{{else}}
+<div class="row mb-4">
+  <div class="col">
+    <p class="text-center">Please <a href="/login" class="text-decoration-none">login</a> to leave a comment.</p>
+  </div>
+</div>
+{{/if}}
 <!-- Multiple comments -->
 {{#each post.comments as |comment| }}
 <div class="row">
