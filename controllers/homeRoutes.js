@@ -27,34 +27,29 @@ router.get("/", async (req, res) => {
 
 // GET login page
 router.get("/login", (req, res) => {
-  // If the user is already logged in, redirect the request to home page
+  // If the user is already logged in, redirect the request to the /dashboard route
   if (req.session.logged_in) {
-    res.redirect("/");
+    res.redirect("/dashboard");
     return;
   }
   res.render("login");
 });
 
 // GET /logout
-// Log user out and redirect to home page
-router.get('/logout', (req, res) => {
-  if (req.session.loggedIn) {
+// Log user out and redirect the request to the / (homepage) route
+router.get('/logout', withAuth, (req, res) => {
     req.session.destroy(() => {
       res.redirect("/");
     });
-  } else {
-    res.status(400).end();
-  }
 });
 
 // GET Sign Up page
 router.get("/signup", (req, res) => {
-  // If the user is already logged in, redirect the request to home page
+  // If the user is already logged in, redirect the request to the /dashboard route
   if (req.session.logged_in) {
-    res.redirect("/");
+    res.redirect("/dashboard");
     return;
   }
-
   res.render("signup");
 });
 

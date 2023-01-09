@@ -36,7 +36,8 @@ router.post('/login', async (req, res) => {
 
 
 
-// POST /api/users to create a new user for signup
+// POST /api/users 
+// create a new user and log the user in
 router.post('/', async (req, res) => {
   try {
     const userData = await User.create(req.body);
