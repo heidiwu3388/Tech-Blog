@@ -21,13 +21,14 @@ seedDatabase = async () => {
       user_id: users[Math.floor(Math.random() * users.length)].id,
     });
   }
-
+  
   // seed data for the table "comment"
+  const posts = await Post.findAll();
   for (const comment of commentData) {
     await Comment.create({
       ...comment,
-      user_id: Math.floor(Math.random() * userData.length) + 1,
-      post_id: Math.floor(Math.random() * postData.length) + 1,
+      user_id: users[Math.floor(Math.random() * users.length)].id,
+      post_id: posts[Math.floor(Math.random() * posts.length)].id,
     });
   }
 

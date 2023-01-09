@@ -1,8 +1,7 @@
 [
   {
     "title": "Using HTTP cookies",
-    "content": 
-    "An HTTP cookie (web cookie, browser cookie) is a small piece of data that a server sends to a user's web browser. The browser may store the cookie and send it back to the same server with later requests. Typically, an HTTP cookie is used to tell if two requests come from the same browser—keeping a user logged in, for example."
+    "content": "An HTTP cookie (web cookie, browser cookie) is a small piece of data that a server sends to a user's web browser. The browser may store the cookie and send it back to the same server with later requests. Typically, an HTTP cookie is used to tell if two requests come from the same browser—keeping a user logged in, for example."
   },
   {
     "title": "MVC",
@@ -11,5 +10,25 @@
   {
     "title": "Object-oriented programming",
     "content": "Object-oriented programming is about modeling a system as a collection of objects, where each object represents some particular aspect of the system. Objects contain both functions (or methods) and data. An object provides a public interface to other code that wants to use it but maintains its own private, internal state; other parts of the system don't have to care about what is going on inside the object."
+  },
+  {
+    "title": "REST",
+    "content": "REST (REpresentational State Transfer) is a software architectural style that defines a set of constraints to be used for creating Web services. Web services that conform to the REST architectural style, called RESTful Web services, provide interoperability between computer systems on the Internet. RESTful Web services allow the requesting systems to access and manipulate textual representations of Web resources by using a uniform and predefined set of stateless operations."
+  },
+  {
+    "title": "SQL",
+    "content": "Structured Query Language (SQL) is a standardized programming language that is used to manage relational databases and perform various operations on the data in them. Initially created in the 1970s, SQL is regularly used not only by database administrators, but also by developers writing data integration scripts and data analysts looking to set up and run analytical queries."
+  },
+  {
+    "title": "Authenticating and Authorization",
+    "content": "Authentication is the process of verifying the identity of a user or process. Authorization is the process of giving someone permission to do or have something."
+  },
+  {
+    "title": "Stateless and Stateful",
+    "content": "Stateless means that the server does not need to remember anything about the client between requests. Stateful means that the server needs to remember something about the client between requests."
+  },
+  {
+    "title": "Client-Server Model",
+    "content": "The client–server model is a distributed application structure that partitions tasks or workloads between the providers of a resource or service, called servers, and service requesters, called clients. Often clients and servers communicate over a computer network on separate hardware, but both client and server may reside in the same system. A server host runs one or more server programs, which share their resources with clients. A client usually does not share any of its resources, but it requests content or service from a server. Clients, therefore, initiate communication sessions with servers, which await incoming requests. Examples of computer applications that use the client–server model are email, network printing, and the World Wide Web."
   }
 ]
