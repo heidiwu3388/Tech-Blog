@@ -32,7 +32,7 @@ router.get("/login", (req, res) => {
     res.redirect("/dashboard");
     return;
   }
-  res.render("login");
+  res.render("login", {loggedIn: req.session.loggedIn});
 });
 
 // GET /logout
@@ -50,7 +50,7 @@ router.get("/signup", (req, res) => {
     res.redirect("/dashboard");
     return;
   }
-  res.render("signup");
+  res.render("signup", {loggedIn: req.session.loggedIn});
 });
 
 // GET all posts for the signed-in user 
