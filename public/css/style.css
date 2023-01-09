@@ -1,33 +1,33 @@
 :root {
-    --artichoke: #A3A380;
-    --medium-champagne: #D6CE93;
-    --beige: #EFEBCE;
-    --tumbleweed: #D8A48F;
-    --old-rose: #BB8588;
-    --black: black;
-    --white: white;
-    --boader-radius: 5px;
+  --artichoke: #a3a380;
+  --medium-champagne: #d6ce93;
+  --beige: #efebce;
+  --tumbleweed: #d8a48f;
+  --old-rose: #bb8588;
+  --black: black;
+  --white: white;
+  --boader-radius: 5px;
 }
 
 .jumbotron {
-    background-color: var(--artichoke);
-    color: var(--white);
+  background-color: var(--artichoke);
+  color: var(--white);
 }
 
 .title {
-    background-color: var(--artichoke);
-    color: var(--white);
-    border-radius: var(--boader-radius) var(--boader-radius) 0 0;
+  background-color: var(--artichoke);
+  color: var(--white);
+  border-radius: var(--boader-radius) var(--boader-radius) 0 0;
 }
 
 .title-link {
-    background-color: var(--old-rose);
-    border-radius: var(--boader-radius) var(--boader-radius) var(--boader-radius) var(--boader-radius);
+  background-color: var(--old-rose);
+  border-radius: var(--boader-radius) var(--boader-radius) var(--boader-radius)
+    var(--boader-radius);
 }
 
-
 .title a {
-    color: var(--white);
+  color: var(--white);
 }
 
 .login-form,
@@ -35,20 +35,20 @@
 .edit-form,
 .new-form,
 .content {
-    border: 1px solid var(--artichoke);
-    border-radius: 0 0 var(--boader-radius) var(--boader-radius);
-    background-color: var(--beige);
+  border: 1px solid var(--artichoke);
+  border-radius: 0 0 var(--boader-radius) var(--boader-radius);
+  background-color: var(--beige);
 }
 
 .comment-by {
-    background-color: var(--beige);
+  background-color: var(--beige);
 }
 
-.dashboard-heading {
-    color: var(--artichoke);
+.sub-heading {
+  color: var(--artichoke);
 }
 
 .btn-old-rose {
-    background-color: var(--old-rose);
-    color: var(--white);
+  background-color: var(--old-rose);
+  color: var(--white);
 }

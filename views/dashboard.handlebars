@@ -1,37 +1,37 @@
 <!-- Dashboard -->
 <div class="d-flex flex-column align-items-center mb-3">
-  <h4 class="dashboard-heading">Hi, {{name}}</h4>
-  <h1 class="dashboard-heading">It's Your Dashboard !</h1>
+  <h4 class="sub-heading">Hi, {{name}}</h4>
+  <h1 class="sub-heading">It's Your Dashboard !</h1>
   <a href="/dashboard/new" class="btn btn-lg btn-old-rose mb-2" id="btn-add-new-post">➕ New Post</a>
   {{#if posts.length}}
-    <em>
-      <h5 class="dashboard-heading">Add a post? Click the button above.</h5>
-    </em>
-    <em>
-      <h5 class="dashboard-heading">Edit your post? Click the post title below.</h5>
-    </em>
+  <em>
+    <h5 class="sub-heading">Add a post? Click the button above.</h5>
+  </em>
+  <em>
+    <h5 class="sub-heading">Edit your post? Click the post title below.</h5>
+  </em>
   {{else}}
-    <em>
-      <h5 class="dashboard-heading">You haven't had any post yet!</h5>
-    </em>
-    <em>
-      <h5 class="dashboard-heading">Create one by clicking the above button!</h5>
-    </em>
+  <em>
+    <h5 class="sub-heading">You haven't had any post yet!</h5>
+  </em>
+  <em>
+    <h5 class="sub-heading">Create one by clicking the above button!</h5>
+  </em>
   {{/if}}
 </div>
 {{!-- render if posts are not empty --}}
 {{#if posts.length}}
-  {{!-- Loop over each object in the posts array --}}
-  {{#each posts as |post| }}
-  <div class="row mb-4 post">
-    <div class="col">
-      <a class="text-decoration-none" href="/dashboard/edit/{{post.id}}">
-        <div class="title title-link px-3 pt-3 pb-2 d-flex justify-content-between align-items-end flex-wrap ">
-          <h3>{{post.title}}</h3>
-          {{format_date post.date_created}}</em>
-        </div>
-      </a>
-    </div>
+{{!-- Loop over each object in the posts array --}}
+{{#each posts as |post| }}
+<div class="row mb-4 post">
+  <div class="col">
+    <a class="text-decoration-none" href="/dashboard/edit/{{post.id}}">
+      <div class="title title-link px-3 pt-3 pb-2 d-flex justify-content-between align-items-end flex-wrap ">
+        <h3>{{post.title}}</h3>
+        {{format_date post.date_created}}</em>
+      </div>
+    </a>
   </div>
-  {{/each}}
+</div>
+{{/each}}
 {{/if}}
