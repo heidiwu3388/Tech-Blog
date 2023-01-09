@@ -31,7 +31,7 @@ router.get('/:id', withAuth, async (req, res) => {
     const post = dbPostData.get({ plain: true });
     console.log("post: ", post);
     // Pass serialized data and session flag into template
-    res.render('post_comments', { post, loggedIn: req.session.loggedIn });
+    res.render('post_comments', { post, loggedIn: req.session.loggedIn, userName: req.session.userName });
   } catch (err) {
     res.status(500).json(err);
   }

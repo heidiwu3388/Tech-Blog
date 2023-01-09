@@ -19,7 +19,7 @@ router.get("/", async (req, res) => {
     // Serialize data so the template can read it
     const posts = dbPostData.map((post) => post.get({ plain: true }));
     // Pass serialized data and session flag into template
-    res.render("homepage", { posts, loggedIn: req.session.loggedIn });
+    res.render("homepage", { posts, loggedIn: req.session.loggedIn, userName: req.session.userName });
   } catch (err) {
     res.status(500).json(err);
   }
@@ -32,7 +32,7 @@ router.get("/login", (req, res) => {
     res.redirect("/dashboard");
     return;
   }
-  res.render("login", {loggedIn: req.session.loggedIn});
+  res.render("login", {loggedIn: req.session.loggedIn, userName: req.session.userName});
 });
 
 // GET /logout
@@ -50,7 +50,7 @@ router.get("/signup", (req, res) => {
     res.redirect("/dashboard");
     return;
   }
-  res.render("signup", {loggedIn: req.session.loggedIn});
+  res.render("signup", {loggedIn: req.session.loggedIn, userName: req.session.userName});
 });
 
 // GET all posts for the signed-in user 
@@ -71,7 +71,7 @@ router.get("/dashboard", withAuth, async (req, res) => {
     // Serialize data so the template can read it
     const user = dbUserData.get({ plain: true });
     // Pass serialized data and session flag into template
-    res.render("dashboard", { ...user, loggedIn: req.session.loggedIn });
+    res.render("dashboard", { ...user, loggedIn: req.session.loggedIn, userName: req.session.userName });
   } catch (err) {
     res.status(500).json(err);
   }
@@ -97,7 +97,7 @@ router.get("/dashboard/edit/:id", withAuth, async (req, res) => {
     // Serialize data so the template can read it
     const post = dbPostData.get({ plain: true });
     // Pass serialized data and session flag into template
-    res.render("editPost", { ...post, loggedIn: req.session.loggedIn });
+    res.render("editPost", { ...post, loggedIn: req.session.loggedIn, userName: req.session.userName });
   } catch (err) {
     res.status(500).json(err);
   }
@@ -105,7 +105,7 @@ router.get("/dashboard/edit/:id", withAuth, async (req, res) => {
 
 // GET new post page
 router.get("/dashboard/new", withAuth, async (req, res) => {
-  res.render("newPost", { loggedIn: req.session.loggedIn });
+  res.render("newPost", { loggedIn: req.session.loggedIn, userName: req.session.userName });
 });
 
 module.exports = router;

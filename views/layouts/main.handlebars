@@ -16,6 +16,10 @@
     <div class="container py-2 mb-3">
       <h1 class="display-4">The Tech Blog</h1>
       <p class="lead">A place to share technical content.</p>
+      {{#if userName}}
+        <hr>
+        <p class="lead">Welcome, {{userName}}!</p>
+      {{/if}}
     </div>
   </div>
 
