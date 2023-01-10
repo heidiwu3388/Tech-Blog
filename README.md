@@ -16,7 +16,7 @@ A CMS-style (Content Management System style) blog site, where developers can pu
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heidi-tech-blog.herokuapp.com/)
 
-Here is the link [https://heidi-tech-blog.herokuapp.com/notes](https://heidi-tech-blog.herokuapp.com/notes) for the deployed application.
+Here is the link [https://heidi-tech-blog.herokuapp.com](https://heidi-tech-blog.herokuapp.com) for the deployed application.
 
 ## Usage
 - When you visit the website, you will see on the homepage all the existing blog posts, each with a title and a snippet.
